@@ -1,0 +1,11 @@
+[project]
+name = "shaft"
+version = "0.1.0"
+description = "SHApe Fourier Transforms"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "matplotlib>=3.10.1",
+    "pyvista>=0.45.0",
+    "tetgen>=0.6.5",
+]
