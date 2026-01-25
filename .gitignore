@@ -1,5 +1,5 @@
 # Python-generated files
-__pycache__/
+**/__pycache__/
 *.py[oc]
 build/
 dist/
@@ -8,3 +8,11 @@ wheels/
 
 # Virtual environments
 .venv
+uv.lock
+
+# Personal
+**/.DS_Store
+.zed
+playground
+examples/surface_classification/trying_things
+examples/surface_classification/fourier_coefs.npy

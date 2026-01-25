@@ -1,11 +1,21 @@
 [project]
 name = "shaft"
 version = "0.1.0"
-description = "SHApe Fourier Transforms"
+description = "SHApe Fourier Transform"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "matplotlib>=3.10.1",
+    "pandas>=2.2.3",
+    "plotly>=6.1.1",
+    "pymeshfix>=0.17.1",
     "pyvista>=0.45.0",
     "tetgen>=0.6.5",
+    "tqdm>=4.67.1",
+]
+
+[project.optional-dependencies]
+examples = [
+    "pandas>=2.2.3",
+    "plotly>=6.1.1",
 ]

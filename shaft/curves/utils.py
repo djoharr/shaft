@@ -21,9 +21,12 @@ def triangulate_curve(curve):
     return triangles
 
 
-
 def get_masks(ks):
-    null_x, null_y, eq_xy = ks[:, :, 0] == 0, ks[:, :, 1] == 0, ks[:,:,0]==ks[:,:,1]
+    null_x, null_y, eq_xy = (
+        ks[:, :, 0] == 0,
+        ks[:, :, 1] == 0,
+        ks[:, :, 0] == ks[:, :, 1],
+    )
     null_xy = null_x & null_y
     null_x = null_x & ~null_xy
     null_y = null_y & ~null_xy
@@ -31,8 +34,9 @@ def get_masks(ks):
     rest = ~null_x & ~null_y & ~null_xy & ~eq_xy
     return rest, null_xy, null_x, null_y, eq_xy
 
+
 def get_sc(ks, mat):
-    mat_base = np.einsum('ijk,lj->lik', mat, ks)
+    mat_base = np.einsum("ijk,lj->lik", mat, ks)
     sinx, siny = np.sin(mat_base[:, :, 0]), np.sin(mat_base[:, :, 1])
     cosx, cosy = np.cos(mat_base[:, :, 0]), np.cos(mat_base[:, :, 1])
     normies, nxy, nx, ny, exy = get_masks(mat_base)
@@ -46,26 +50,28 @@ def get_sc(ks, mat):
 
     a = np.power(mnorm[:, 1] * (mnorm[:, 0] - mnorm[:, 1]), -1)
     b = np.power(mnorm[:, 0] * mnorm[:, 1], -1)
-    sins[normies] =  a * (siny_ - sinx_) + b * sinx_
+    sins[normies] = a * (siny_ - sinx_) + b * sinx_
     coss[normies] = a * (cosy_ - cosx_) + b * (cosx_ - 1)
 
-    mnxy = mat_base[nxy]
+    # mnxy = mat_base[nxy]
     sins[nxy] = 0
     coss[nxy] = 0
 
     mnx = mat_base[nx]
     siny_, cosy_ = siny[nx], cosy[nx]
-    sins[nx] = - np.power(mnx[:, 1], -2) * siny_ + np.power(mnx[:, 1], -1)
-    coss[nx] = - np.power(mnx[:, 1], -2) * (cosy_ + 1)
+    sins[nx] = -np.power(mnx[:, 1], -2) * siny_ + np.power(mnx[:, 1], -1)
+    coss[nx] = -np.power(mnx[:, 1], -2) * (cosy_ + 1)
 
     mny = mat_base[ny]
     sinx_, cosx_ = sinx[ny], cosx[ny]
-    sins[ny] = - np.power(mny[:, 0], -2) * sinx_ + np.power(mny[:, 0], -1)
+    sins[ny] = -np.power(mny[:, 0], -2) * sinx_ + np.power(mny[:, 0], -1)
     coss[ny] = np.power(mny[:, 0], -2) * (1 - cosx_)
 
     mexy = mat_base[exy]
     sinx_, cosx_ = sinx[exy], cosx[exy]
-    sins[exy] = - np.power(mexy[:, 0], -1) * cosx_ + np.power(mexy[:, 0], -2) * sinx_
-    coss[exy] = np.power(mexy[:, 0], -2) * (cosx_ - 1) + np.power(mexy[:, 0], -1) * sinx_
+    sins[exy] = -np.power(mexy[:, 0], -1) * cosx_ + np.power(mexy[:, 0], -2) * sinx_
+    coss[exy] = (
+        np.power(mexy[:, 0], -2) * (cosx_ - 1) + np.power(mexy[:, 0], -1) * sinx_
+    )
 
     return sins.T, coss.T
