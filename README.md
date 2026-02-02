@@ -14,7 +14,7 @@ To compute the Shape FT of surfaces simply:
 import pyvista as pv # We use pyvista for loading and visualisation
 from shaft import sft
 
-k_range = 20 # The range to build the Z3 lattice sampling.
+k_range = 20 # The range to build the Z2 lattice sampling.
 mesh = pv.read('\path\to\mesh.vtk') # A triangulated surface.
 fourier_coefs = sft(surface, k_range) # The fourier coefficients.
 ```
