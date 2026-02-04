@@ -7,6 +7,9 @@ The Discrete Fourier Transforms is used everywhere. However, any attempts to com
 Instead, we propose to compute the FT as the sum of the FT of the discrete part of the shape (i.e triangles and tetrahedras). This is what we call the Shape Fourier Transform.
 An accompanying paper is coming soon.
 
+
+![](./data/assets/chebu.png "Cheburashka") ![til](./data/assets/chebu.gif "Fourier's Cheburashka")
+
 ## Usage 
 
 To compute the Shape FT of surfaces simply:
@@ -15,7 +18,7 @@ import pyvista as pv # We use pyvista for loading and visualisation
 from shaft import sft
 
 k_range = 20 # The range to build the Z3 lattice sampling.
-mesh = pv.read('\path\to\mesh.vtk') # A triangulated surface.
+surface = pv.read('\path\to\mesh.vtk') # A triangulated surface.
 fourier_coefs = sft(surface, k_range) # The fourier coefficients.
 ```
 And for curves: 
@@ -23,9 +26,9 @@ And for curves:
 import numpy as np # 2d curves are defined as an array of 2 coordinates
 from shaft import cft
 
-k_range = 20 # The range to build the Z3 lattice sampling.
-mesh = np.load('\path\to\curve.npy') # 2d points defining the curve.
-fourier_coefs = cft(surface, k_range) # The fourier coefficients.
+k_range = 20 # The range to build the Z2 lattice sampling.
+curve = np.load('\path\to\curve.npy') # 2d points defining the curve.
+fourier_coefs = cft(curve, k_range) # The fourier coefficients.
 ```
 
 >[!NOTE]

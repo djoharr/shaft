@@ -1,5 +1,5 @@
-import tetgen
 import pymeshfix as mf
+import tetgen
 
 
 def fix_mesh(mesh):
