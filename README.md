@@ -8,7 +8,7 @@ Instead, we propose to compute the FT as the sum of the FT of the discrete part 
 An accompanying paper is coming soon.
 
 
-![](./data/assets/chebu.png "Cheburashka" =20%) ![til](./data/assets/chebu.gif "Fourier's Cheburashka")
+<img src="./data/assets/chebu.png" alt="Cheburashka"  style="width:50%; height:auto;">  ![til](./data/assets/chebu.gif "Fourier's Cheburashka")
 
 ## Usage 
 
