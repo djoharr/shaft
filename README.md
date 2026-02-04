@@ -8,7 +8,7 @@ Instead, we propose to compute the FT as the sum of the FT of the discrete part 
 An accompanying paper is coming soon.
 
 
-![](./data/assets/chebu.png "Cheburashka") ![til](./data/assets/chebu.gif "Fourier's Cheburashka")
+![](./data/assets/chebu.png "Cheburashka" =20%x) ![til](./data/assets/chebu.gif "Fourier's Cheburashka")
 
 ## Usage 
 
@@ -20,10 +20,6 @@ from shaft import sft
 <<<<<<< HEAD
 k_range = 20 # The range to build the Z3 lattice sampling.
 surface = pv.read('\path\to\mesh.vtk') # A triangulated surface.
-=======
-k_range = 20 # The range to build the Z2 lattice sampling.
-mesh = pv.read('\path\to\mesh.vtk') # A triangulated surface.
->>>>>>> 25fa7090c6f50e2927474e427643e4bedcec345e
 fourier_coefs = sft(surface, k_range) # The fourier coefficients.
 ```
 And for curves: 
