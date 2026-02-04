@@ -35,6 +35,7 @@ fourier_coefs = cft(curve, k_range) # The fourier coefficients.
 
 
 <img src="./data/assets/chebu.png" alt="Cheburashka"  style="width:40%; height:auto;">  ![til](./data/assets/chebu.gif "Fourier's Cheburashka")
+
 This cheburashka example script is in examples/basics/cheburashka.py
 ## Installation
 
