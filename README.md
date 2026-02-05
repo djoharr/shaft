@@ -8,8 +8,6 @@ Instead, we propose to compute the FT as the sum of the FT of the discrete part 
 An accompanying paper is coming soon.
 
 
-<img src="./data/assets/chebu.png" alt="Cheburashka"  style="width:35%; height:auto;">  ![til](./data/assets/chebu.gif "Fourier's Cheburashka")
-
 ## Usage 
 
 To compute the Shape FT of surfaces simply:
@@ -34,6 +32,11 @@ fourier_coefs = cft(curve, k_range) # The fourier coefficients.
 >[!NOTE]
 >To run the examples, you need to run both the *curve_classification/preprocessing.py* and *surface_classification/compute_coefs.py* first.
 
+
+
+<img src="./data/assets/chebu.png" alt="Cheburashka"  style="width:35%; height:auto;">  ![til](./data/assets/chebu.gif "Fourier's Cheburashka")
+
+This cheburashka example script is in examples/basics/cheburashka.py
 ## Installation
 
 To install just follow the standard procedure 
