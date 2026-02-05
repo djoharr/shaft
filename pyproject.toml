@@ -5,10 +5,9 @@ description = "SHApe Fourier Transform"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
-    "matplotlib>=3.10.1",
+
     "meshio>=5.3.5",
     "pandas>=2.2.3",
-    "plotly>=6.1.1",
     "pymeshfix>=0.17.1",
     "pyvista>=0.45.0",
     "tetgen>=0.6.5",
@@ -17,6 +16,9 @@ dependencies = [
 
 [project.optional-dependencies]
 examples = [
+    "matplotlib>=3.10.1",
     "pandas>=2.2.3",
     "plotly>=6.1.1",
+    "geomloss>=0.2.6",
+    "pykeops>=2.3",
 ]

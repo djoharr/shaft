@@ -12,9 +12,9 @@ from tqdm import tqdm
 
 
 def main():
-    fcs = np.load(join(dirname(realpath(__file__)), "../fourier_coefs.npy"))
+    fcs = np.load(join(dirname(realpath(__file__)), "fourier_coefs.npy"))
     info = pd.read_csv(
-        join(dirname(__file__), "../../../data/surfaces", "shrec_info.csv"),
+        join(dirname(__file__), "../../data/surfaces", "shrec_info.csv"),
         delimiter=";",
     )
 
