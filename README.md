@@ -1,6 +1,6 @@
 # ShaFT: Shape Fourier Transform
 
-This package implements the proper discrete shape fourier transform.
+This package implements the atomic discrete shape fourier transform.
 
 ## Some motivation
 The Discrete Fourier Transforms is used everywhere. However, any attempts to compute the DFT of a 2d or 3d shape would yield false results. This is because to apply the classical DFT to a shape, the shape needs to be represented as a signal. That is, as its indicator function. As we know, the DFT does not respond well to such "jumpy" functions and yields a smeared out version of the shape instead of the transform.
